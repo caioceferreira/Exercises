@@ -11,7 +11,7 @@ Constraints
 1 ≤ R, C ≤ 100
 1≤R,C≤100
 0 ≤ Gi , j ≤ 1 0≤G i,j ≤1
-*** /
+***/
 
 public class Main
 {
