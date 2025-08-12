@@ -1,0 +1,39 @@
+public class Main {
+
+    public static void main(String[] args) {
+        int[] array_a = {1, 4, 3, 2};
+        int[] array_b = {1, 2, 3, 4};
+
+        System.out.println("areTheyEqual : " + areTheyEqual(array_a, array_b));
+    }
+
+    private static void sort(int[] array) {
+        boolean swapped = false;
+        do {
+            swapped = false;
+            swapped = isBiggerThan(swapped, array);
+        }
+        while (swapped);
+    }
+
+    private static boolean areTheyEqual(int[] array_a, int[] array_b) {
+        sort(array_a);
+        Arrays.stream(array_a).forEach(System.out::println);
+        sort(array_b);
+        Arrays.stream(array_b).forEach(System.out::println);
+        return Arrays.hashCode(array_a) == Arrays.hashCode(array_b);
+    }
+
+    private static boolean isBiggerThan(boolean swapped, int[] array) {
+        int temporaryValue = 0;
+        for (int index = 0; index < array.length; index++) {
+            if (index + 1 < array.length && array[index] > array[index + 1]) {
+                temporaryValue = array[index];
+                array[index] = array[index + 1];
+                array[index + 1] = temporaryValue;
+                swapped = true;
+            }
+        }
+        return swapped;
+    }
+}
