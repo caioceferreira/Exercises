@@ -1,0 +1,35 @@
+//BINARY SEARCH
+
+public class Main {
+    public static void main(String[] args) {
+        int[] sortedArray = {1, 3, 4, 7, 9, 10, 13, 14, 18, 25, 30};
+        int target = 3;
+        binarySearch(target, sortedArray, 0, sortedArray.length - 1);
+
+    }
+
+    public static void binarySearch(int target, int[] array, int left, int right) {
+        int middle = getMiddle(left, right);
+
+        if (right < left) {
+            System.out.println("Not Found!");
+            return;
+        }
+
+        if (array[middle] == target) {
+            System.out.println("Found: " + array[middle]);
+            return;
+        }
+
+        if (target < array[middle]) {
+            binarySearch(target, array, left, middle - 1);
+        } else {
+            binarySearch(target, array, middle + 1, right);
+        }
+
+    }
+
+    public static int getMiddle(int left, int right) {
+        return (left + right) / 2;
+    }
+}
