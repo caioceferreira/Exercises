@@ -1,11 +1,11 @@
+package main;
 //BINARY SEARCH
 
 public class Main {
     public static void main(String[] args) {
         int[] sortedArray = {1, 3, 4, 7, 9, 10, 13, 14, 18, 25, 30};
-        int target = 3;
+        int target = 2;
         binarySearch(target, sortedArray, 0, sortedArray.length - 1);
-
     }
 
     public static void binarySearch(int target, int[] array, int left, int right) {
@@ -26,7 +26,6 @@ public class Main {
         } else {
             binarySearch(target, array, middle + 1, right);
         }
-
     }
 
     public static int getMiddle(int left, int right) {
